@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment.prod';
-import { map } from 'rxjs/operators';
+import { map, switchMap, take, tap } from 'rxjs/operators';
 import { Post } from './post.model';
+import { env } from 'process';
+import { BehaviorSubject } from 'rxjs';
 
 interface PostData {
   id: string;
@@ -18,17 +20,26 @@ interface PostData {
   providedIn: 'root'
 })
 export class PostsService {
+  private _posts = new BehaviorSubject<Post[]>([]);
+
+	get posts() {
+		return this._posts.asObservable();
+	}
 
   constructor(private http: HttpClient) { }
 
   public getPosts() {
     return this.http
-      .get(environment.backendApi)
+      .get<PostData[]>(environment.backendApi)
       .pipe(
+        take(1),
         map(resData => {
           const postArray: Post[] = Object.values(resData);
           return postArray;
-        })
+        }),
+        tap(posts => {
+					this._posts.next(posts);
+				})
       );
   }
 
@@ -36,6 +47,7 @@ export class PostsService {
     return this.http
       .get<PostData>(environment.backendApi + `${id}`)
       .pipe(
+        take(1),
         map(resData => {
           return new Post(
             resData.id,
@@ -48,5 +60,20 @@ export class PostsService {
           );
         })
       )
+  }
+
+  public deletePostById(id: string) {
+    return this.http
+      .delete(environment.backendApi + `${id}`)
+      .pipe(
+        take(1),
+        switchMap(() => {
+          return this.posts;
+        }),
+        take(1),
+        tap(posts => {
+          this._posts.next(posts.filter(p => p.id !== id));
+        })
+      );
   }
 }

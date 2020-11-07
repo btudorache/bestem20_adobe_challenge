@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { Post } from '../post.model';
 import { PostsService } from '../posts.service';
@@ -14,6 +14,7 @@ export class PostDetailPage implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private navCtrl: NavController,
     private postsService: PostsService
   ) { }
@@ -27,6 +28,14 @@ export class PostDetailPage implements OnInit {
       
       this.postsService.getPostById(paramMap.get('postId')).subscribe(post => this.loadedPost = post);
     })
+  }
+
+  deletePost(id: string) {
+    this.postsService.deletePostById(id).subscribe(() => {
+      console.log("I AM HERE");
+      this.navCtrl.navigateBack('/posts');
+    });
+    
   }
 
 }

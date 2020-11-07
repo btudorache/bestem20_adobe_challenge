@@ -4,6 +4,11 @@
       <ion-back-button [defaultHref]="'/posts'"></ion-back-button>
     </ion-buttons>
     <ion-title>{{ loadedPost?.title }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="danger" (click)="deletePost(loadedPost.id)">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
