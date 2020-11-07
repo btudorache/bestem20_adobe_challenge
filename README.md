@@ -1,4 +1,4 @@
-# Setup
+# Setup Backend - Ubuntu/MacOS
 
 **Requirements: Python3, pip**
 
@@ -15,7 +15,7 @@ python3 manage.py loaddata data.json            # load initial data
 python3 manage.py runserver                     # run local server
 ```
 
-# Api
+## Api
 
 *format:* http_verb : url : action
 
@@ -36,7 +36,7 @@ DELETE : http://localhost:8000/api/{id}/ : deletes post with post_id *{id}*
 GET : http://localhost:8000/api/random/ : gets random post from database
 
 
-# Frontend
+# Setup - Frontend
 
 ## Prerequisites 
 1. [Node](https://nodejs.org/en/)
