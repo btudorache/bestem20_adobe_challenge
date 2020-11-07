@@ -1,0 +1,15 @@
+ion-buttons.buttonbar {
+    text-align: center;
+    width: 100%;
+    white-space: nowrap;
+    background-color: var(--ion-toolbar-background, var(--ion-background-color, #fff));
+    ion-button {
+        width: 50%;
+        font-size: 13px;
+        height: 40px;
+        background-color: var(--ion-toolbar-background, var(--ion-background-color, #fff));
+        ion-icon {
+            padding-right: 5px;
+        }
+    }
+}

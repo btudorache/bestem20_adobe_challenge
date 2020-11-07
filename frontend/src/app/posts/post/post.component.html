@@ -1,0 +1,14 @@
+<ion-card>
+  <ion-card-header>
+    <h4>{{ loadedPost.title }} in CATEGORY</h4>
+  </ion-card-header>
+  <ion-img
+    [src]="loadedPost.imageUrl"
+    [routerLink]="['/', 'posts', loadedPost.id]"
+  ></ion-img>
+  <ion-card-content>
+    <p>made by {{ loadedPost.artist }}</p>
+    <br />
+    <p>{{ loadedPost.description }}</p>
+  </ion-card-content>
+</ion-card>

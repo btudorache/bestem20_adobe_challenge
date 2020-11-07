@@ -7,6 +7,18 @@ const routes: Routes = [
   {
     path: '',
     component: PostsPage
+  },
+  {
+    path: 'new',
+    loadChildren: () => import('./new-post/new-post.module').then( m => m.NewPostPageModule)
+  },
+  {
+    path: 'edit/:postId',
+    loadChildren: () => import('./edit-post/edit-post.module').then( m => m.EditPostPageModule)
+  },
+  {
+    path: ':postId',
+    loadChildren: () => import('./post-detail/post-detail.module').then( m => m.PostDetailPageModule)
   }
 ];
 

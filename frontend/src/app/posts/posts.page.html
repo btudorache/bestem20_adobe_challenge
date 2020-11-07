@@ -1,9 +1,28 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>Social Me</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <app-post *ngFor="let post of posts" [loadedPost]="post"></app-post>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+<ion-buttons class="buttonbar">
+  <ion-button center>
+    <ion-icon name="home-outline"></ion-icon>
+    <ion-label>Home</ion-label>
+  </ion-button>
+  <ion-button center routerLink="/posts/new">
+    <ion-icon name="add-circle-outline"></ion-icon>
+    <ion-label>Add Post</ion-label>
+  </ion-button>
+</ion-buttons>

@@ -4,18 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { PostsPageRoutingModule } from './posts-routing.module';
+import { PostDetailPageRoutingModule } from './post-detail-routing.module';
 
-import { PostsPage } from './posts.page';
-import { PostComponent } from './post/post.component';
+import { PostDetailPage } from './post-detail.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PostsPageRoutingModule
+    PostDetailPageRoutingModule
   ],
-  declarations: [PostsPage, PostComponent]
+  declarations: [PostDetailPage]
 })
-export class PostsPageModule {}
+export class PostDetailPageModule {}
