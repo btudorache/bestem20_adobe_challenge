@@ -11,7 +11,7 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <app-post></app-post>
+        <app-post *ngFor="let post of posts" [loadedPost]="post"></app-post>
       </ion-col>
     </ion-row>
     <ion-row>
