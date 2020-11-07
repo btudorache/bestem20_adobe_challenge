@@ -1,14 +1,15 @@
-<ion-card>
+<ion-card class="post">
   <ion-card-header>
-    <h4>{{ loadedPost.title }} in CATEGORY</h4>
+    <ion-card-title>{{ loadedPost.title }} </ion-card-title>
   </ion-card-header>
   <ion-img
     [src]="loadedPost.imageUrl"
     [routerLink]="['/', 'posts', loadedPost.id]"
   ></ion-img>
   <ion-card-content>
-    <p>made by {{ loadedPost.artist }}</p>
-    <br />
-    <p>{{ loadedPost.description }}</p>
+    <ion-label
+      >Posted by {{ loadedPost.artist }} on {{ loadedPost.created_at | date }} from 
+      <ion-label class="background">{{ loadedPost.location }}</ion-label>
+    </ion-label>
   </ion-card-content>
 </ion-card>

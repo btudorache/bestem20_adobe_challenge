@@ -1,0 +1,10 @@
+ion-card {
+    border-radius: 10px;
+
+    ion-label.background {
+        color: var(--ion-color-warning-contrast);
+        background-color: var(--ion-color-warning);
+        border-radius: 15px;
+        padding: 3px;
+    }
+}
