@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment.prod';
 import { map, switchMap, take, tap } from 'rxjs/operators';
@@ -21,6 +21,7 @@ interface PostData {
 })
 export class PostsService {
   private _posts = new BehaviorSubject<Post[]>([]);
+  @Output() nickname: EventEmitter<string> = new EventEmitter();
 
   get posts() {
     return this._posts.asObservable();
@@ -163,5 +164,9 @@ export class PostsService {
           return resData.id;
         })
       );
+  }
+
+  public passNickname(nickname: string) {
+    this.nickname.emit(nickname);
   }
 }
