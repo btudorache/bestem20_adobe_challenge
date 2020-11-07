@@ -45,7 +45,7 @@ export class PostsService {
 
   public getPostById(id: string) {
     return this.http
-      .get<PostData>(environment.backendApi + `${id}`)
+      .get<PostData>(environment.backendApi + `${id}/`)
       .pipe(
         take(1),
         map(resData => {
@@ -64,7 +64,7 @@ export class PostsService {
 
   public deletePostById(id: string) {
     return this.http
-      .delete(environment.backendApi + `${id}`)
+      .delete(environment.backendApi + `${id}/`)
       .pipe(
         take(1),
         switchMap(() => {
