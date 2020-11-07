@@ -26,7 +26,7 @@ export class NewPostPage implements OnInit {
       }),
       description: new FormControl(null, {
         updateOn: 'blur',
-        validators: [Validators.required, Validators.maxLength(180)]
+        validators: [Validators.required, Validators.maxLength(1000)]
       }),
       imageUrl: new FormControl(null, {
         updateOn: 'blur',

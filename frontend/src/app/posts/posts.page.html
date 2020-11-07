@@ -4,11 +4,6 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Social Me</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="onRandomPost()">
-        <ion-icon name="walk"></ion-icon>
-      </ion-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -22,9 +17,9 @@
   </ion-grid>
 </ion-content>
 <ion-buttons class="buttonbar">
-  <ion-button center>
-    <ion-icon name="home-outline"></ion-icon>
-    <ion-label>Home</ion-label>
+  <ion-button center (click)="onRandomPost()">
+    <ion-icon name="brush-outline"></ion-icon>
+    <ion-label>Charm me</ion-label>
   </ion-button>
   <ion-button center routerLink="/posts/new">
     <ion-icon name="add-circle-outline"></ion-icon>
