@@ -6,4 +6,4 @@ from .models import Post
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ['id', 'title', 'description', 'imageUrl', 'artist', 'location', 'created_at']
+        fields = ['id', 'title', 'description', 'imageUrl', 'artist', 'location', 'category', 'created_at']

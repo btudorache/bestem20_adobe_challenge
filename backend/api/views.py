@@ -11,3 +11,12 @@ class PostList(generics.ListCreateAPIView):
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+
+
+class PostGenreList(generics.ListCreateAPIView):
+    serializer_class = PostSerializer
+
+    def get_queryset(self):
+        category = self.kwargs.get('category', None)
+        queryset = Post.objects.filter(category=category)
+        return queryset

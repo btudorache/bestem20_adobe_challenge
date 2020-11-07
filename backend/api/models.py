@@ -3,9 +3,10 @@ from django.db import models
 
 class Post(models.Model):
     CHOICES = [
-        ("1", "Visual Arts"),
-        ("2", "Crafts"),
-        ("3", "Photography"),
+        ("Visual Arts", "Visual Arts"),
+        ("Crafts", "Crafts"),
+        ("Photography", "Photography"),
+        ("Sculpture", "Sculpture"),
     ]
 
     title = models.CharField(max_length=50)
@@ -14,7 +15,7 @@ class Post(models.Model):
     artist = models.CharField(max_length=50)
     location = models.CharField(max_length=50)
     created_at = models.DateTimeField(auto_now_add=True)
-    categories = models.CharField(max_length=50, choices=CHOICES)
+    category = models.CharField(max_length=50, choices=CHOICES)
 
     def __str__(self):
         return self.title
