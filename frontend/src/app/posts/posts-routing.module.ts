@@ -17,7 +17,7 @@ const routes: Routes = [
     loadChildren: () => import('./edit-post/edit-post.module').then( m => m.EditPostPageModule)
   },
   {
-    path: 'post-detail',
+    path: ':postId',
     loadChildren: () => import('./post-detail/post-detail.module').then( m => m.PostDetailPageModule)
   }
 ];
