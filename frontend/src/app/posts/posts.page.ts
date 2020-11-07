@@ -26,6 +26,12 @@ export class PostsPage implements OnInit, OnDestroy {
     this.postsService.getPosts().subscribe();
   }
 
+  onRandomPost() {
+    this.postsService.getRandomPostId().subscribe(id => {
+      this.router.navigate(['/posts/' + id]);
+    });
+  }
+
   ngOnDestroy() {
     if (this.postsSub) {
       this.postsSub.unsubscribe();

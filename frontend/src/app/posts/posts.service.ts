@@ -153,4 +153,15 @@ export class PostsService {
         })
       );
   }
+
+  public getRandomPostId() {
+    return this.http
+      .get<Post>(environment.backendApi + 'random/')
+      .pipe(
+        take(1),
+        map(resData => {
+          return resData.id;
+        })
+      );
+  }
 }
