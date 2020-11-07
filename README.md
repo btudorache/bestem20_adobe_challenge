@@ -25,11 +25,15 @@ POST : http://localhost:8000/api/ : creates new post
 
 <br>
 
-GET : http://localhost:8000/api/{id} : gets post with post_id *{id}*
+GET : http://localhost:8000/api/{id}/ : gets post with post_id *{id}*
 
-PUT : http://localhost:8000/api/{id} : updates post with post_ud *{id}*
+PUT : http://localhost:8000/api/{id}/ : updates post with post_ud *{id}*
 
-DELETE : http://localhost:8000/api/{id} : deletes post with post_id *{id}*
+DELETE : http://localhost:8000/api/{id}/ : deletes post with post_id *{id}*
+
+<br>
+
+GET : http://localhost:8000/api/random/ : gets random post from database
 
 
 # Frontend
