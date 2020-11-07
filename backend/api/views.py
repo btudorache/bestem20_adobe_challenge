@@ -28,7 +28,6 @@ class RandomDetail(generics.RetrieveAPIView):
     serializer_class = PostSerializer
 
     def get_object(self):
-        latest_id = Post.objects.latest('id').id
-        random_id = random.randint(1, latest_id)
-        obj = Post.objects.get(id=random_id)
+        all_posts = Post.objects.all()
+        obj = random.choice(all_posts)
         return obj
