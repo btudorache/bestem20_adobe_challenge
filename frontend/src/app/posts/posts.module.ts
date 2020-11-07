@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { PostsPageRoutingModule } from './posts-routing.module';
 
 import { PostsPage } from './posts.page';
+import { PostComponent } from './post/post.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { PostsPage } from './posts.page';
     IonicModule,
     PostsPageRoutingModule
   ],
-  declarations: [PostsPage]
+  declarations: [PostsPage, PostComponent]
 })
 export class PostsPageModule {}

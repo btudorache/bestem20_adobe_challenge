@@ -1,14 +1,25 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Social Me</ion-title>
-    <ion-button slot="end" routerLink="/posts/new">Add post</ion-button>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/posts/new">Add post</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  This is the posts page
-  <br>
-  <ion-button routerLink="/posts/edit">Edit Page</ion-button>
-  <ion-button routerLink="/posts/post-detail">Detail Page</ion-button> 
-  <ion-button routerLink="/auth">Logout</ion-button>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <app-post></app-post>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-buttons>
+        <ion-button routerLink="/posts/edit">Edit Page</ion-button>
+        <ion-button routerLink="/posts/post-detail">Detail Page</ion-button> 
+        <ion-button routerLink="/auth">Logout</ion-button>
+      </ion-buttons>
+    </ion-row>
+  </ion-grid>
 </ion-content>
