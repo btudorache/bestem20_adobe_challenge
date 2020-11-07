@@ -4,7 +4,7 @@ import { environment } from './../../environments/environment.prod';
 import { map, switchMap, take, tap } from 'rxjs/operators';
 import { Post } from './post.model';
 import { env } from 'process';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, of } from 'rxjs';
 
 interface PostData {
   id: string;
@@ -98,12 +98,59 @@ export class PostsService {
       .post(environment.backendApi, newPost)
       .pipe(
         switchMap(resData => {
-					return this.posts;
-				}),
+          return this.posts;
+        }),
         take(1),
         tap(posts => {
-					this._posts.next(posts.concat(newPost));
-				})
+          this._posts.next(posts.concat(newPost));
+        })
+      );
+  }
+
+  public editPost(
+    id: string,
+    title: string,
+    description: string,
+    imageUrl: string,
+    location: string,
+    artist: string
+  ) {
+    let updatedPosts: Post[];
+    return this.posts
+      .pipe(
+        take(1),
+        switchMap(posts => {
+          if (!posts || posts.length <= 0) {
+            return this.getPosts();
+          } else {
+            return of(posts);
+          }
+        }),
+        switchMap(posts => {
+          const updatedPostIndex = posts.findIndex(p => {
+            if (+p.id === +id) {
+              return true;
+            } else {
+              return false;
+            }
+          });
+          updatedPosts = [...posts];
+          const oldPost = updatedPosts[updatedPostIndex];
+          updatedPosts[updatedPostIndex] = new Post(
+            oldPost.id,
+            title,
+            description,
+            imageUrl,
+            artist,
+            location,
+            oldPost.created_at
+          );
+          return this.http
+            .put(environment.backendApi + `${id}/`, updatedPosts[updatedPostIndex]);
+        }),
+        tap(() => {
+          this._posts.next(updatedPosts);
+        })
       );
   }
 }

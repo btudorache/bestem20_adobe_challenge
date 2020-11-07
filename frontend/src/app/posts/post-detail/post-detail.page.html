@@ -5,6 +5,9 @@
     </ion-buttons>
     <ion-title>{{ loadedPost?.title }}</ion-title>
     <ion-buttons slot="end">
+      <ion-button color="primary" [routerLink]="['/', 'posts', 'edit', loadedPost?.id]">
+        <ion-icon name="pencil-outline"></ion-icon>
+      </ion-button>
       <ion-button color="danger" (click)="deletePost(loadedPost.id)">
         <ion-icon name="trash-outline"></ion-icon>
       </ion-button>

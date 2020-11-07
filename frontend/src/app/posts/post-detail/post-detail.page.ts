@@ -34,7 +34,10 @@ export class PostDetailPage implements OnInit {
     this.postsService.deletePostById(id).subscribe(() => {
       this.navCtrl.navigateBack('/posts');
     });
-    
+  }
+
+  onEdit(id: string) {
+    this.router.navigate(['/', 'posts', 'edit', id]);
   }
 
 }
