@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { PostsService } from '../posts/posts.service';
 
 @Component({
   selector: 'app-auth',
@@ -7,13 +8,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./auth.page.scss'],
 })
 export class AuthPage implements OnInit {
+  @ViewChild('nameInput', { read: ElementRef }) nameInput: ElementRef;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private postsService: PostsService
+  ) { }
 
   ngOnInit() {
   }
 
   onLogin() {
+    this.postsService.passNickname(this.nameInput.nativeElement.value);
     this.router.navigateByUrl('/posts');
   }
 }

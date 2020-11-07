@@ -1,6 +1,6 @@
 <ion-card class="post">
   <ion-card-header>
-    <ion-card-title>{{ loadedPost.title }} </ion-card-title>
+    <ion-card-title [routerLink]="['/', 'posts', loadedPost.id]">{{ loadedPost.title }} </ion-card-title>
   </ion-card-header>
   <ion-img
     [src]="loadedPost.imageUrl"
