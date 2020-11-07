@@ -5,14 +5,14 @@
 Clone the repository locally:
 
 ```
-cd rest_api_test\backend\
-pip install virtualenv                   # install virtualenv package
-virtualenv venv                          # create virtual env
-source venv/bin/activate                 # activate venv 
-pip install -r requirements.txt          # install requirements
-python manage.py migrate                 # create database tables/fields
-python manage.py loaddata data.json      # load initial data
-python manage.py runserver               # run local server
+cd bestem20_adobe_challenge_seism/backend/      # change folder
+pip install virtualenv                          # install virtualenv package
+virtualenv venv                                 # create virtual env
+source venv/bin/activate                        # activate venv 
+pip install -r requirements.txt                 # install requirements
+python manage.py migrate                        # create database tables/fields
+python manage.py loaddata data.json             # load initial data
+python manage.py runserver                      # run local server
 ```
 
 # Api
