@@ -6,6 +6,6 @@ export class Post {
         public imageUrl: string,
         public artist: string,
         public location: string,
-        public created_at: Date) {
+        public created_at: string) {
     }
 }

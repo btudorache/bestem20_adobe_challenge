@@ -32,7 +32,6 @@ export class PostDetailPage implements OnInit {
 
   deletePost(id: string) {
     this.postsService.deletePostById(id).subscribe(() => {
-      console.log("I AM HERE");
       this.navCtrl.navigateBack('/posts');
     });
     

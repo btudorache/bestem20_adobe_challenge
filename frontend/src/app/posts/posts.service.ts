@@ -13,7 +13,7 @@ interface PostData {
   imageUrl: string;
   artist: string;
   location: string;
-  created_at: Date;
+  created_at: string;
 }
 
 @Injectable({
@@ -22,9 +22,9 @@ interface PostData {
 export class PostsService {
   private _posts = new BehaviorSubject<Post[]>([]);
 
-	get posts() {
-		return this._posts.asObservable();
-	}
+  get posts() {
+    return this._posts.asObservable();
+  }
 
   constructor(private http: HttpClient) { }
 
@@ -38,8 +38,8 @@ export class PostsService {
           return postArray;
         }),
         tap(posts => {
-					this._posts.next(posts);
-				})
+          this._posts.next(posts);
+        })
       );
   }
 
@@ -74,6 +74,36 @@ export class PostsService {
         tap(posts => {
           this._posts.next(posts.filter(p => p.id !== id));
         })
+      );
+  }
+
+  public addPost(
+    title: string,
+    description: string,
+    imageUrl: string,
+    location: string,
+    artist: string
+  ) {
+    let newPost: Post = new Post(
+      Math.random.toString(),
+      title,
+      description,
+      imageUrl,
+      artist,
+      location,
+      new Date().toString()
+    );
+
+    return this.http
+      .post(environment.backendApi, newPost)
+      .pipe(
+        switchMap(resData => {
+					return this.posts;
+				}),
+        take(1),
+        tap(posts => {
+					this._posts.next(posts.concat(newPost));
+				})
       );
   }
 }
