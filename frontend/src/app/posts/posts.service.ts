@@ -85,7 +85,7 @@ export class PostsService {
     artist: string
   ) {
     let newPost: Post = new Post(
-      Math.random.toString(),
+      Math.random().toString(),
       title,
       description,
       imageUrl,
