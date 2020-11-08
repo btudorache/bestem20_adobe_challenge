@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backendApi: 'http://localhost:8000/api/'
+  backendApi: 'https://artbazar.herokuapp.com/api/'
 };
 
 /*
