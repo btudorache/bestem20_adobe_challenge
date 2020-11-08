@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { Post } from '../post.model';
 import { PostsService } from '../posts.service';
 
@@ -16,7 +16,8 @@ export class PostDetailPage implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private navCtrl: NavController,
-    private postsService: PostsService
+    private postsService: PostsService,
+    private alertCtrl: AlertController
   ) { }
 
   ngOnInit() {
@@ -31,9 +32,26 @@ export class PostDetailPage implements OnInit {
   }
 
   deletePost(id: string) {
-    this.postsService.deletePostById(id).subscribe(() => {
-      this.navCtrl.navigateBack('/posts');
+    this.alertCtrl.create({
+      message: 'Are you sure you want to delete this post?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        },
+        {
+          text: 'Ok',
+          handler: () => {
+            this.postsService.deletePostById(id).subscribe(() => {
+              this.navCtrl.navigateBack('/posts');
+            });
+          }
+        }
+      ]
+    }).then(alertEl => {
+      alertEl.present();
     });
+    
   }
 
   onEdit(id: string) {
