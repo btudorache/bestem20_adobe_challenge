@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostsService } from '../posts/posts.service';
 
@@ -8,8 +8,8 @@ import { PostsService } from '../posts/posts.service';
   styleUrls: ['./auth.page.scss'],
 })
 export class AuthPage implements OnInit {
-  @ViewChild('nameInput', { read: ElementRef }) nameInput: ElementRef;
-
+  nameInput: string;
+  
   constructor(
     private router: Router,
     private postsService: PostsService
@@ -19,7 +19,7 @@ export class AuthPage implements OnInit {
   }
 
   onLogin() {
-    this.postsService.passNickname(this.nameInput.nativeElement.value);
+    this.postsService.passNickname(this.nameInput);
     this.router.navigateByUrl('/posts');
   }
 }
