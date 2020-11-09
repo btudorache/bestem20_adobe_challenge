@@ -1,7 +1,9 @@
 # Setup Backend - Ubuntu/MacOS
 
+## Prerequisites 
 **Requirements: Python3, pip**
 
+## Installation 
 Clone the repository locally:
 
 ```
@@ -48,3 +50,18 @@ GET : http://localhost:8000/api/random/ : gets random post from database
 ## Development server
 
 Run `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+# Media
+Media for our app:
+
+Main List View
+
+![main](C:\Users\Bogdan\Desktop\my_projects\Python\bestem20_adobe_challenge_seism\readme_media\main.png)
+
+Detail View
+
+![detail](C:\Users\Bogdan\Desktop\my_projects\Python\bestem20_adobe_challenge_seism\readme_media\detail.png)
+
+Create View
+
+![create](C:\Users\Bogdan\Desktop\my_projects\Python\bestem20_adobe_challenge_seism\readme_media\create.png)
