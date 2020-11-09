@@ -17,6 +17,8 @@ python3 manage.py loaddata data.json            # load initial data
 python3 manage.py runserver                     # run local server
 ```
 
+Or just use the provided api at https://artbazar.herokuapp.com/api/
+
 ## Api
 
 *format:* http_verb : url : action
