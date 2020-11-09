@@ -58,12 +58,12 @@ Media for our app:
 
 Main List View
 
-![main](C:\Users\Bogdan\Desktop\my_projects\Python\bestem20_adobe_challenge_seism\readme_media\main.png)
+![main](https://github.com/btudorache/bestem20_adobe_challenge/blob/master/readme_media/main.PNG)
 
 Detail View
 
-![detail](C:\Users\Bogdan\Desktop\my_projects\Python\bestem20_adobe_challenge_seism\readme_media\detail.png)
+![detail](https://github.com/btudorache/bestem20_adobe_challenge/blob/master/readme_media/detail.PNG)
 
 Create View
 
-![create](C:\Users\Bogdan\Desktop\my_projects\Python\bestem20_adobe_challenge_seism\readme_media\create.png)
+![create](https://github.com/btudorache/bestem20_adobe_challenge/blob/master/readme_media/create.PNG)
